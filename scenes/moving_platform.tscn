@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://btaj1pxib1d14"]
+
+[ext_resource type="Texture2D" uid="uid://c1ksk7h3yoyvt" path="res://assets/sheet-alt.png" id="1_6lsdx"]
+[ext_resource type="Script" uid="uid://dfcbc08swg01y" path="res://scripts/moving_platform.gd" id="1_sogjj"]
+
+[sub_resource type="Curve2D" id="Curve2D_sogjj"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 200, 0)
+}
+point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_45lxb"]
+size = Vector2(80, 16)
+
+[node name="MovingPlatform" type="Path2D" unique_id=595751382 node_paths=PackedStringArray("pathFollow2D")]
+curve = SubResource("Curve2D_sogjj")
+script = ExtResource("1_sogjj")
+pathFollow2D = NodePath("PathFollow2D")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="." unique_id=893743393]
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PathFollow2D" unique_id=2170094]
+remote_path = NodePath("../../AnimatableBody2D")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=2083666015]
+collision_layer = 128
+
+[node name="Platform" type="Node2D" parent="AnimatableBody2D" unique_id=1381467788]
+
+[node name="PlatformSprite" type="Sprite2D" parent="AnimatableBody2D/Platform" unique_id=1319135337]
+position = Vector2(-32, 0)
+texture = ExtResource("1_6lsdx")
+region_enabled = true
+region_rect = Rect2(160, 48, 16, 16)
+
+[node name="PlatformSprite2" type="Sprite2D" parent="AnimatableBody2D/Platform" unique_id=1514169126]
+position = Vector2(-16, 0)
+texture = ExtResource("1_6lsdx")
+region_enabled = true
+region_rect = Rect2(160, 48, 16, 16)
+
+[node name="PlatformSprite3" type="Sprite2D" parent="AnimatableBody2D/Platform" unique_id=933654294]
+texture = ExtResource("1_6lsdx")
+region_enabled = true
+region_rect = Rect2(160, 48, 16, 16)
+
+[node name="PlatformSprite4" type="Sprite2D" parent="AnimatableBody2D/Platform" unique_id=1924506390]
+position = Vector2(16, 0)
+texture = ExtResource("1_6lsdx")
+region_enabled = true
+region_rect = Rect2(160, 48, 16, 16)
+
+[node name="PlatformSprite5" type="Sprite2D" parent="AnimatableBody2D/Platform" unique_id=1227929609]
+position = Vector2(32, 0)
+texture = ExtResource("1_6lsdx")
+region_enabled = true
+region_rect = Rect2(160, 48, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D" unique_id=172256796]
+shape = SubResource("RectangleShape2D_45lxb")

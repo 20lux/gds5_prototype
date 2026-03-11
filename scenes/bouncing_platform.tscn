@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://cs3wyox30dwg7"]
+
+[ext_resource type="Texture2D" uid="uid://chgjlp3c8h2dg" path="res://assets/foodfromcts1a.png" id="1_0u4bf"]
+[ext_resource type="Script" uid="uid://dr3m3snhs8ro8" path="res://scripts/bouncing_platform.gd" id="1_ymtc8"]
+
+[sub_resource type="Animation" id="Animation_ymtc8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_afgti"]
+resource_name = "jump"
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(1, 4.1410656, 0.3922917, 0.3922923, 1.0717719),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.2), Vector2(1, 2), Vector2(1, 0.5), Vector2(1, 1.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cmdfk"]
+_data = {
+&"RESET": SubResource("Animation_ymtc8"),
+&"jump": SubResource("Animation_afgti")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2v2nl"]
+size = Vector2(20, 14)
+
+[node name="BouncingPlatform" type="Area2D" unique_id=221566995 node_paths=PackedStringArray("animationPlayer")]
+collision_layer = 128
+script = ExtResource("1_ymtc8")
+animationPlayer = NodePath("AnimationPlayer")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=217894305]
+position = Vector2(-3, -2)
+texture = ExtResource("1_0u4bf")
+region_enabled = true
+region_rect = Rect2(32, 144, 32, 16)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2054358791]
+libraries/ = SubResource("AnimationLibrary_cmdfk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=163792706]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_2v2nl")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

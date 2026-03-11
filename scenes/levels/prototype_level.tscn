@@ -4,7 +4,10 @@
 [ext_resource type="Script" uid="uid://d3m2wwwd08wmg" path="res://scripts/game_controller.gd" id="1_i8wb4"]
 [ext_resource type="Texture2D" uid="uid://c1ksk7h3yoyvt" path="res://assets/sheet-alt.png" id="2_bls32"]
 [ext_resource type="PackedScene" uid="uid://dv74by0p7lqt1" path="res://scenes/player/player.tscn" id="2_hg8qc"]
+[ext_resource type="PackedScene" uid="uid://btaj1pxib1d14" path="res://scenes/moving_platform.tscn" id="5_7kxsd"]
 [ext_resource type="PackedScene" uid="uid://ckt7otqsooi53" path="res://scenes/portal.tscn" id="5_nbgd6"]
+[ext_resource type="PackedScene" uid="uid://cs3wyox30dwg7" path="res://scenes/bouncing_platform.tscn" id="7_av42w"]
+[ext_resource type="AudioStream" uid="uid://d2xhhvgik1285" path="res://audio/flowerbed_fields.ogg" id="8_js2ys"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hg8qc"]
 texture = ExtResource("2_bls32")
@@ -100,8 +103,65 @@ sources/0 = SubResource("TileSetAtlasSource_hg8qc")
 sources/1 = SubResource("TileSetAtlasSource_bls32")
 sources/2 = SubResource("TileSetAtlasSource_i8wb4")
 
-[node name="TestLevel2" type="Node2D" unique_id=45422843]
+[sub_resource type="Curve2D" id="Curve2D_js2ys"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 200, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_cx7x2"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -192, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_w2f51"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 192, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_y2424"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -272, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_1qcro"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 320, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_l22r4"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 120, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_xtll6"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 320, 520)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_qcc2t"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -312, 528)
+}
+point_count = 2
+
+[node name="TestLevel2" type="Node2D" unique_id=45422843 node_paths=PackedStringArray("audioPlayer")]
 script = ExtResource("1_i8wb4")
+audioPlayer = NodePath("AudioStreamPlayer")
 metadata/_edit_horizontal_guides_ = [-1000.0, -2000.0, -3000.0, -4000.0, -5000.0, -6000.0, -7000.0]
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1612950766]
@@ -118,9 +178,76 @@ tile_set = SubResource("TileSet_i8wb4")
 
 [node name="Player" parent="." unique_id=1442003314 instance=ExtResource("2_hg8qc")]
 position = Vector2(686, 692)
+jump_power = -250.0
 
 [node name="OriginalPosition" type="Node2D" parent="." unique_id=2009389297]
 position = Vector2(686, 692)
 
 [node name="Portal" parent="." unique_id=119490118 instance=ExtResource("5_nbgd6")]
 position = Vector2(728, -6946)
+
+[node name="MovingPlatform" parent="." unique_id=595751382 instance=ExtResource("5_7kxsd")]
+position = Vector2(637, -500)
+curve = SubResource("Curve2D_js2ys")
+
+[node name="MovingPlatform2" parent="." unique_id=606840309 instance=ExtResource("5_7kxsd")]
+position = Vector2(832, -1992)
+curve = SubResource("Curve2D_cx7x2")
+
+[node name="MovingPlatform5" parent="." unique_id=799011255 instance=ExtResource("5_7kxsd")]
+position = Vector2(632, -2536)
+curve = SubResource("Curve2D_w2f51")
+
+[node name="MovingPlatform3" parent="." unique_id=929132329 instance=ExtResource("5_7kxsd")]
+position = Vector2(872, -3256)
+curve = SubResource("Curve2D_y2424")
+
+[node name="MovingPlatform4" parent="." unique_id=504943363 instance=ExtResource("5_7kxsd")]
+position = Vector2(576, -3736)
+curve = SubResource("Curve2D_1qcro")
+
+[node name="MovingPlatform8" parent="." unique_id=594796435 instance=ExtResource("5_7kxsd")]
+position = Vector2(680, -5992)
+curve = SubResource("Curve2D_l22r4")
+
+[node name="MovingPlatform6" parent="." unique_id=702998628 instance=ExtResource("5_7kxsd")]
+position = Vector2(576, -5704)
+curve = SubResource("Curve2D_xtll6")
+
+[node name="MovingPlatform7" parent="." unique_id=1135217909 instance=ExtResource("5_7kxsd")]
+position = Vector2(872, -5704)
+curve = SubResource("Curve2D_qcc2t")
+
+[node name="BouncingPlatform" parent="." unique_id=221566995 instance=ExtResource("7_av42w")]
+position = Vector2(616, -1000)
+
+[node name="BouncingPlatform2" parent="." unique_id=1093629990 instance=ExtResource("7_av42w")]
+position = Vector2(840, -1000)
+
+[node name="BouncingPlatform4" parent="." unique_id=1262272926 instance=ExtResource("7_av42w")]
+position = Vector2(568, -2536)
+
+[node name="BouncingPlatform5" parent="." unique_id=1089076884 instance=ExtResource("7_av42w")]
+position = Vector2(888, -2536)
+
+[node name="BouncingPlatform3" parent="." unique_id=451791228 instance=ExtResource("7_av42w")]
+position = Vector2(728, -1536)
+
+[node name="BouncingPlatform6" parent="." unique_id=1999771825 instance=ExtResource("7_av42w")]
+position = Vector2(648, -4472)
+
+[node name="BouncingPlatform7" parent="." unique_id=55211049 instance=ExtResource("7_av42w")]
+position = Vector2(808, -4472)
+
+[node name="BouncingPlatform8" parent="." unique_id=1044065920 instance=ExtResource("7_av42w")]
+position = Vector2(728, -5368)
+
+[node name="BouncingPlatform9" parent="." unique_id=1869953473 instance=ExtResource("7_av42w")]
+position = Vector2(696, -6328)
+
+[node name="BouncingPlatform10" parent="." unique_id=1266316999 instance=ExtResource("7_av42w")]
+position = Vector2(760, -6328)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1747603258]
+stream = ExtResource("8_js2ys")
+autoplay = true
