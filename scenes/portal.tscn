@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://ckt7otqsooi53"]
+
+[ext_resource type="Texture2D" uid="uid://csx7hcfrwbblf" path="res://assets/door.png" id="1_1ffj6"]
+[ext_resource type="Texture2D" uid="uid://obu14irwrmw7" path="res://assets/star_07.png" id="1_v0xau"]
+
+[sub_resource type="Curve" id="Curve_v0xau"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5014006, 0.50000006), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_d4jfq"]
+colors = PackedColorArray(0.95467764, 0.7837256, 0, 1, 1, 1, 0, 0)
+
+[sub_resource type="Curve" id="Curve_1ffj6"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.100000024), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jr6l0"]
+size = Vector2(36, 38)
+
+[node name="Portal" type="Node2D" unique_id=119490118]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=940070147]
+position = Vector2(3, 0)
+texture = ExtResource("1_1ffj6")
+
+[node name="Particle" type="CPUParticles2D" parent="." unique_id=885419642]
+texture = ExtResource("1_v0xau")
+explosiveness = 1.0
+direction = Vector2(1, -50)
+spread = 180.0
+gravity = Vector2(0, 210)
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+scale_amount_min = 0.2
+scale_amount_max = 0.5
+scale_amount_curve = SubResource("Curve_v0xau")
+color_ramp = SubResource("Gradient_d4jfq")
+hue_variation_curve = SubResource("Curve_1ffj6")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=885908861]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2114804069]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_jr6l0")
