@@ -1,0 +1,109 @@
+[gd_scene format=3 uid="uid://q4lgf0x3wypx"]
+
+[ext_resource type="Script" uid="uid://71qucquyqgec" path="res://scripts/pause_menu.gd" id="1_n87rw"]
+
+[sub_resource type="Animation" id="Animation_n87rw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_myx47"]
+resource_name = "fade_in"
+length = 0.33333334
+step = 0.16666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.33333337),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kukqi"]
+_data = {
+&"RESET": SubResource("Animation_n87rw"),
+&"fade_in": SubResource("Animation_myx47")
+}
+
+[node name="PauseMenu" type="Control" unique_id=909740561]
+process_mode = 3
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n87rw")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=567953919]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 128.0
+offset_right = 1088.0
+offset_bottom = 576.0
+color = Color(0.33333334, 0.6509804, 1, 0.48235294)
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=583787505]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 128.0
+offset_right = 1088.0
+offset_bottom = 576.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=2121628660]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="VolumeLabel" type="Label" parent="PanelContainer/VBoxContainer" unique_id=2124370650]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Volume
+"
+horizontal_alignment = 1
+
+[node name="VolumeSlider" type="HSlider" parent="PanelContainer/VBoxContainer/VolumeLabel" unique_id=113831929]
+layout_mode = 0
+offset_left = -197.0
+offset_top = 28.0
+offset_right = 267.0
+offset_bottom = 44.0
+max_value = 1.0
+step = 0.05
+
+[node name="ResumeButton" type="Button" parent="PanelContainer/VBoxContainer" unique_id=457218758]
+layout_mode = 2
+text = "Resume"
+
+[node name="RestartButton" type="Button" parent="PanelContainer/VBoxContainer" unique_id=326409703]
+layout_mode = 2
+text = "Restart"
+
+[node name="QuitButton" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1911306083]
+layout_mode = 2
+text = "Quit"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1429460942]
+libraries/ = SubResource("AnimationLibrary_kukqi")
+
+[connection signal="mouse_exited" from="PanelContainer/VBoxContainer/VolumeLabel/VolumeSlider" to="." method="_on_volume_slider_mouse_exited"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
