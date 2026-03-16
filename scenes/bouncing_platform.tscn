@@ -43,10 +43,9 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2v2nl"]
 size = Vector2(20, 14)
 
-[node name="BouncingPlatform" type="Area2D" unique_id=221566995 node_paths=PackedStringArray("animationPlayer")]
+[node name="BouncingPlatform" type="Area2D" unique_id=221566995]
 collision_layer = 128
 script = ExtResource("1_ymtc8")
-animationPlayer = NodePath("AnimationPlayer")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=217894305]
 position = Vector2(-3, -2)

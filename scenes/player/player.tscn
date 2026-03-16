@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://b4yoqxjo2ucj8" path="res://assets/player_sprite.png" id="2_dovo2"]
 [ext_resource type="Script" uid="uid://cfwoxhejrlh7o" path="res://scripts/animator.gd" id="2_gmlin"]
 [ext_resource type="AudioStream" uid="uid://dk7v3j3b27u6w" path="res://audio/SoundJump1.wav" id="4_p47bc"]
-[ext_resource type="Texture2D" uid="uid://b3cympit1ht1n" path="res://assets/orangeCloud4.png" id="5_p47bc"]
 
 [sub_resource type="Animation" id="Animation_gmlin"]
 length = 0.001
@@ -87,19 +86,9 @@ _data = {
 radius = 8.0
 height = 18.0
 
-[sub_resource type="Curve" id="Curve_75vfm"]
-_limits = [-200.0, 200.0, 0.0, 1.0]
-_data = [Vector2(0, 70.10309), 0.0, 0.0, 0, 0, Vector2(1, -200), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="Curve" id="Curve_0owmy"]
-_data = [Vector2(0, 0.13402057), 0.0, 0.0, 0, 0, Vector2(0.9957807, 0), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[node name="Player" type="CharacterBody2D" unique_id=1442003314 node_paths=PackedStringArray("jet_particles")]
+[node name="Player" type="CharacterBody2D" unique_id=1442003314]
 collision_mask = 33152
 script = ExtResource("1_4anbu")
-jet_particles = NodePath("CPUParticles2D")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1625369315]
 position = Vector2(0, -40)
@@ -125,15 +114,3 @@ stream = ExtResource("4_p47bc")
 
 [node name="Player" type="CollisionShape2D" parent="." unique_id=642368857]
 shape = SubResource("CapsuleShape2D_qnmj6")
-
-[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=2131881976]
-position = Vector2(0, 8)
-amount = 3
-texture = ExtResource("5_p47bc")
-lifetime = 0.3
-spread = 0.0
-linear_accel_min = -52.45
-linear_accel_max = 13.11
-linear_accel_curve = SubResource("Curve_75vfm")
-scale_amount_min = 0.5
-scale_amount_curve = SubResource("Curve_0owmy")
