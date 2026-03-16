@@ -29,10 +29,18 @@ func _physics_process(delta: float) -> void:
 		# only if player is rising
 		if velocity.y < 0:
 			audio_jump.play()
+			audio_jump.pitch_scale = 1.0
 			jumpNum += 1
 			velocity.y *= jump_magnitude
-			if jumpNum == 4:
-				velocity.y = 0
+			#if jumpNum == 1:
+				#audio_jump.pitch_scale -= 0.2
+			#elif jumpNum == 2:
+				#audio_jump.pitch_scale -= 0.2
+			#elif jumpNum == 3:
+				#audio_jump.pitch_scale -= 0.2
+			#elif jumpNum == 4:
+				#velocity.y = 0
+				#audio_jump.pitch_scale -= 0.2
 
 	## Get the input direction and handle the movement/deceleration.
 	var direction := Input.get_axis("left", "right")
