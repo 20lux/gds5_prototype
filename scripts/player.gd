@@ -12,10 +12,6 @@ var jumpNum = 0
 var maxVelocity = 600.0
 var minVelocity = -600.0
 
-var gradient : Gradient
-
-var jetIncrement = 2
-
 @onready var audio_jump = $Animator/audio_jump
 
 func _physics_process(delta: float) -> void:
