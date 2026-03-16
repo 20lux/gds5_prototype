@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://cd4klrcpb1bdg"]
+
+[ext_resource type="Script" uid="uid://dag1w2k4t7xse" path="res://scripts/debug.gd" id="1_i0jw4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dovo2"]
+font_color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control" unique_id=1070373410]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_i0jw4")
+
+[node name="Label_playervelocity" type="Label" parent="." unique_id=1106075843]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 164.0
+offset_bottom = 47.0
+text = "Player velocity (y):"
+label_settings = SubResource("LabelSettings_dovo2")
+
+[node name="playervelocity" type="Label" parent="Label_playervelocity" unique_id=1480652289]
+layout_mode = 0
+offset_left = 200.0
+offset_right = 340.0
+offset_bottom = 23.0
+label_settings = SubResource("LabelSettings_dovo2")
+
+[node name="Label_playerjumppower" type="Label" parent="." unique_id=361385463]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 55.0
+offset_right = 174.0
+offset_bottom = 78.0
+text = "Player jump power:"
+label_settings = SubResource("LabelSettings_dovo2")
+
+[node name="playerjumppower" type="Label" parent="Label_playerjumppower" unique_id=505006268]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 2.0
+offset_right = 340.0
+offset_bottom = 25.0
+label_settings = SubResource("LabelSettings_dovo2")
+
+[node name="Label_playerjumpmagnitude" type="Label" parent="." unique_id=1394347671]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 86.0
+offset_right = 209.0
+offset_bottom = 109.0
+text = "Player jump magnitude:"
+label_settings = SubResource("LabelSettings_dovo2")
+
+[node name="playerjumpmagnitude" type="Label" parent="Label_playerjumpmagnitude" unique_id=121460119]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 2.0
+offset_right = 340.0
+offset_bottom = 25.0
+label_settings = SubResource("LabelSettings_dovo2")
+
+[node name="Label_distancefromorigin" type="Label" parent="." unique_id=1708499943]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 117.0
+offset_right = 191.0
+offset_bottom = 140.0
+text = "Distance from origin: "
+label_settings = SubResource("LabelSettings_dovo2")
+
+[node name="distancefromorigin" type="Label" parent="Label_distancefromorigin" unique_id=534165925]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 3.0
+offset_right = 240.0
+offset_bottom = 26.0
+label_settings = SubResource("LabelSettings_dovo2")
+
+[node name="jumpnum" type="Label" parent="." unique_id=1790284853]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 664.0
+offset_right = 72.0
+offset_bottom = 687.0
+label_settings = SubResource("LabelSettings_dovo2")

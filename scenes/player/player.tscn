@@ -6,9 +6,6 @@
 [ext_resource type="AudioStream" uid="uid://dk7v3j3b27u6w" path="res://audio/SoundJump1.wav" id="4_p47bc"]
 [ext_resource type="Texture2D" uid="uid://b3cympit1ht1n" path="res://assets/orangeCloud4.png" id="5_p47bc"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_dovo2"]
-font_color = Color(0, 0, 0, 1)
-
 [sub_resource type="Animation" id="Animation_gmlin"]
 length = 0.001
 tracks/0/type = "value"
@@ -107,86 +104,6 @@ jet_particles = NodePath("CPUParticles2D")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1625369315]
 position = Vector2(0, -40)
 zoom = Vector2(2, 2)
-
-[node name="Control" type="Control" parent="." unique_id=1118865473]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Label_playervelocity" type="Label" parent="Control" unique_id=1639659230]
-layout_mode = 0
-offset_left = -306.0
-offset_top = -207.0
-offset_right = -166.0
-offset_bottom = -184.0
-text = "Player velocity (y):"
-label_settings = SubResource("LabelSettings_dovo2")
-
-[node name="playervelocity" type="Label" parent="Control/Label_playervelocity" unique_id=600633642]
-layout_mode = 0
-offset_left = 195.0
-offset_right = 335.0
-offset_bottom = 23.0
-label_settings = SubResource("LabelSettings_dovo2")
-
-[node name="Label_playerjumppower" type="Label" parent="Control" unique_id=1486398201]
-layout_mode = 0
-offset_left = -306.0
-offset_top = -176.0
-offset_right = -156.0
-offset_bottom = -153.0
-text = "Player jump power:"
-label_settings = SubResource("LabelSettings_dovo2")
-
-[node name="playerjumppower" type="Label" parent="Control/Label_playerjumppower" unique_id=630601617]
-layout_mode = 0
-offset_left = 195.0
-offset_top = 2.0
-offset_right = 335.0
-offset_bottom = 25.0
-label_settings = SubResource("LabelSettings_dovo2")
-
-[node name="Label_playerjumpmagnitude" type="Label" parent="Control" unique_id=1869561002]
-layout_mode = 0
-offset_left = -306.0
-offset_top = -145.0
-offset_right = -121.0
-offset_bottom = -122.0
-text = "Player jump magnitude:"
-label_settings = SubResource("LabelSettings_dovo2")
-
-[node name="playerjumpmagnitude" type="Label" parent="Control/Label_playerjumpmagnitude" unique_id=1965733762]
-layout_mode = 0
-offset_left = 195.0
-offset_top = 2.0
-offset_right = 335.0
-offset_bottom = 25.0
-label_settings = SubResource("LabelSettings_dovo2")
-
-[node name="Label_distancefromorigin" type="Label" parent="Control" unique_id=1675827396]
-layout_mode = 0
-offset_left = -306.0
-offset_top = -114.0
-offset_right = -139.0
-offset_bottom = -91.0
-text = "Distance from origin: "
-label_settings = SubResource("LabelSettings_dovo2")
-
-[node name="distancefromorigin" type="Label" parent="Control/Label_distancefromorigin" unique_id=423807838]
-layout_mode = 0
-offset_left = 204.0
-offset_right = 244.0
-offset_bottom = 23.0
-label_settings = SubResource("LabelSettings_dovo2")
-
-[node name="jumpnum" type="Label" parent="Control" unique_id=1498628961]
-layout_mode = 0
-offset_left = -302.0
-offset_top = 106.0
-offset_right = -262.0
-offset_bottom = 129.0
-label_settings = SubResource("LabelSettings_dovo2")
 
 [node name="Animator" type="Node2D" parent="." unique_id=287913775 node_paths=PackedStringArray("player", "animation_player", "sprite")]
 script = ExtResource("2_gmlin")

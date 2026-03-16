@@ -7,4 +7,4 @@ func _on_body_entered(body: Node2D) -> void:
 	if "Player" in body.name:
 		animationPlayer.play("bounce")
 		body.velocity.y += bounceIntensity
-		
+		body.jumpNum = 0

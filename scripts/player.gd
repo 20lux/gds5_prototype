@@ -5,15 +5,8 @@ class_name Player
 @export var jump_power = -300.0
 @export var jump_magnitude = 2
 @export var originalPosition : Vector2
-@export var currentPosition: Vector2
-@export var jet_particles : CPUParticles2D
-
-var playerVelocity : Label
-var playerJumpPower: Label
-var playerJumpMagnitude : Label
-var distanceFromOrigin: Label
-var numOfJumps : Label
-
+var currentPosition: Vector2
+var jet_particles : CPUParticles2D
 var jumpLimit = 3
 var jumpNum = 0
 
@@ -23,15 +16,6 @@ var minVelocity = -600.0
 var gradient : Gradient
 
 @onready var audio_jump = $Animator/audio_jump
-
-func _ready() -> void:
-	playerVelocity = $Control/Label_playervelocity/playervelocity
-	playerJumpPower = $Control/Label_playerjumppower/playerjumppower
-	playerJumpMagnitude = $Control/Label_playerjumpmagnitude/playerjumpmagnitude
-	distanceFromOrigin = $Control/Label_distancefromorigin/distancefromorigin
-	originalPosition = $"../OriginalPosition".global_position
-	currentPosition = position
-	numOfJumps = $Control/jumpnum
 
 func _physics_process(delta: float) -> void:
 	clampf(velocity.y, minVelocity, maxVelocity)
@@ -76,11 +60,3 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, speed)
 
 	move_and_slide()
-	
-	# Debug
-	currentPosition = position
-	distanceFromOrigin.text = str(originalPosition - currentPosition)
-	playerVelocity.text = str(velocity.y)
-	playerJumpPower.text = str(jump_power)
-	playerJumpMagnitude.text = str(jump_magnitude)
-	numOfJumps.text = str(jumpNum)
