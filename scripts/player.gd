@@ -45,9 +45,10 @@ func _physics_process(delta: float) -> void:
 			elif jumpNum == 3:
 				jet_particles.color = Color.RED
 				jet_particles.amount += 2
-			elif jumpNum == 4:
-				jet_particles.color = Color.PINK
-				jet_particles.amount += 2
+			elif jumpNum == 4 and Input.is_action_pressed("jump"):
+					velocity.y = -10
+					jet_particles.color = Color.BLACK
+					jet_particles.amount += 2
 			else:
 				jet_particles.color = Color.DARK_GRAY
 				jet_particles.amount = 3

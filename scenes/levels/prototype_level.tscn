@@ -223,17 +223,71 @@ curve = SubResource("Curve2D_5u6e4")
 [node name="BouncingPlatform" parent="." unique_id=221566995 instance=ExtResource("7_av42w")]
 position = Vector2(616, -1000)
 
+[node name="BouncingPlatform11" parent="." unique_id=1519391558 instance=ExtResource("7_av42w")]
+position = Vector2(736, 512)
+
+[node name="BouncingPlatform12" parent="." unique_id=1143051371 instance=ExtResource("7_av42w")]
+position = Vector2(736, 320)
+
+[node name="BouncingPlatform13" parent="." unique_id=1749940068 instance=ExtResource("7_av42w")]
+position = Vector2(736, 128)
+
+[node name="BouncingPlatform14" parent="." unique_id=1442287511 instance=ExtResource("7_av42w")]
+position = Vector2(736, -704)
+
+[node name="BouncingPlatform15" parent="." unique_id=1833759731 instance=ExtResource("7_av42w")]
+position = Vector2(672, -832)
+
+[node name="BouncingPlatform16" parent="." unique_id=33205969 instance=ExtResource("7_av42w")]
+position = Vector2(800, -832)
+
+[node name="BouncingPlatform17" parent="." unique_id=637329945 instance=ExtResource("7_av42w")]
+position = Vector2(736, -216)
+
 [node name="BouncingPlatform2" parent="." unique_id=1093629990 instance=ExtResource("7_av42w")]
 position = Vector2(840, -1000)
 
 [node name="BouncingPlatform4" parent="." unique_id=1262272926 instance=ExtResource("7_av42w")]
 position = Vector2(568, -2536)
 
+[node name="BouncingPlatform21" parent="." unique_id=1360041691 instance=ExtResource("7_av42w")]
+position = Vector2(568, -2624)
+
+[node name="BouncingPlatform22" parent="." unique_id=1169845047 instance=ExtResource("7_av42w")]
+position = Vector2(888, -2624)
+
+[node name="BouncingPlatform23" parent="." unique_id=12608890 instance=ExtResource("7_av42w")]
+position = Vector2(888, -2880)
+
+[node name="BouncingPlatform24" parent="." unique_id=2113275936 instance=ExtResource("7_av42w")]
+position = Vector2(568, -2880)
+
+[node name="BouncingPlatform25" parent="." unique_id=594036807 instance=ExtResource("7_av42w")]
+position = Vector2(736, -3368)
+
+[node name="BouncingPlatform26" parent="." unique_id=181943171 instance=ExtResource("7_av42w")]
+position = Vector2(736, -3584)
+
+[node name="BouncingPlatform27" parent="." unique_id=690593521 instance=ExtResource("7_av42w")]
+position = Vector2(736, -4224)
+
+[node name="BouncingPlatform28" parent="." unique_id=790845430 instance=ExtResource("7_av42w")]
+position = Vector2(736, -4736)
+
 [node name="BouncingPlatform5" parent="." unique_id=1089076884 instance=ExtResource("7_av42w")]
 position = Vector2(888, -2536)
 
 [node name="BouncingPlatform3" parent="." unique_id=451791228 instance=ExtResource("7_av42w")]
 position = Vector2(728, -1536)
+
+[node name="BouncingPlatform18" parent="." unique_id=2047127842 instance=ExtResource("7_av42w")]
+position = Vector2(728, -1280)
+
+[node name="BouncingPlatform19" parent="." unique_id=1638276060 instance=ExtResource("7_av42w")]
+position = Vector2(728, -1792)
+
+[node name="BouncingPlatform20" parent="." unique_id=57974337 instance=ExtResource("7_av42w")]
+position = Vector2(728, -2296)
 
 [node name="BouncingPlatform6" parent="." unique_id=1999771825 instance=ExtResource("7_av42w")]
 position = Vector2(648, -4472)
@@ -244,6 +298,12 @@ position = Vector2(808, -4472)
 [node name="BouncingPlatform8" parent="." unique_id=1044065920 instance=ExtResource("7_av42w")]
 position = Vector2(728, -5368)
 
+[node name="BouncingPlatform29" parent="." unique_id=995228561 instance=ExtResource("7_av42w")]
+position = Vector2(640, -6656)
+
+[node name="BouncingPlatform30" parent="." unique_id=1585538343 instance=ExtResource("7_av42w")]
+position = Vector2(832, -6656)
+
 [node name="BouncingPlatform9" parent="." unique_id=1869953473 instance=ExtResource("7_av42w")]
 position = Vector2(696, -6328)
 
@@ -251,6 +311,7 @@ position = Vector2(696, -6328)
 position = Vector2(760, -6328)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=86649483]
+visible = false
 
 [node name="PauseMenu" parent="CanvasLayer" unique_id=909740561 instance=ExtResource("9_cx7x2")]
 
