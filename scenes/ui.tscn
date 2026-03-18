@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://y1p3vxpx1wb7"]
+
+[ext_resource type="Script" uid="uid://4sbuxinnip2q" path="res://scripts/ui.gd" id="1_nt7q6"]
+
+[node name="UI" type="Control" unique_id=756990508 node_paths=PackedStringArray("bar")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_nt7q6")
+bar = NodePath("Bar")
+
+[node name="BarContainer" type="ColorRect" parent="." unique_id=426024845]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 640.0
+offset_right = 1216.0
+offset_bottom = 672.0
+
+[node name="Bar" type="ColorRect" parent="." unique_id=1508095303]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 648.0
+offset_right = 73.0
+offset_bottom = 664.0
+color = Color(1, 0, 0, 1)

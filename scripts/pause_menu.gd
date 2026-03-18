@@ -7,12 +7,14 @@ func _ready() -> void:
 func resume() -> void:
 	get_tree().paused = false
 	$AnimationPlayer.play_backwards("fade_in")
+	$".".hide()
 
 func pause() -> void:
+	$".".show()
 	get_tree().paused = true
 	$AnimationPlayer.play("fade_in")
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause") and !get_tree().paused:
 		pause()
 	elif Input.is_action_just_pressed("pause") and get_tree().paused:

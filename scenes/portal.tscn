@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://csx7hcfrwbblf" path="res://assets/door.png" id="1_1ffj6"]
 [ext_resource type="Texture2D" uid="uid://obu14irwrmw7" path="res://assets/star_07.png" id="1_v0xau"]
+[ext_resource type="AudioStream" uid="uid://noowxhfyjqjr" path="res://audio/applause.wav" id="3_jr6l0"]
 
 [sub_resource type="Curve" id="Curve_v0xau"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5014006, 0.50000006), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -43,3 +44,7 @@ hue_variation_curve = SubResource("Curve_1ffj6")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2114804069]
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_jr6l0")
+
+[node name="applause" type="AudioStreamPlayer2D" parent="." unique_id=17768764]
+stream = ExtResource("3_jr6l0")
+playback_type = 1
