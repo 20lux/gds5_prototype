@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ckt7otqsooi53"]
 
 [ext_resource type="Texture2D" uid="uid://csx7hcfrwbblf" path="res://assets/door.png" id="1_1ffj6"]
+[ext_resource type="Script" uid="uid://bhekv7nqe4kyx" path="res://scripts/portal.gd" id="1_d4jfq"]
 [ext_resource type="Texture2D" uid="uid://obu14irwrmw7" path="res://assets/star_07.png" id="1_v0xau"]
 [ext_resource type="AudioStream" uid="uid://noowxhfyjqjr" path="res://audio/applause.wav" id="3_jr6l0"]
 
@@ -20,6 +21,11 @@ point_count = 2
 size = Vector2(36, 38)
 
 [node name="Portal" type="Node2D" unique_id=119490118]
+script = ExtResource("1_d4jfq")
+
+[node name="applause" type="AudioStreamPlayer2D" parent="." unique_id=2035989283]
+stream = ExtResource("3_jr6l0")
+playback_type = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=940070147]
 position = Vector2(3, 0)
@@ -39,12 +45,10 @@ scale_amount_curve = SubResource("Curve_v0xau")
 color_ramp = SubResource("Gradient_d4jfq")
 hue_variation_curve = SubResource("Curve_1ffj6")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=885908861]
+[node name="PortalArea2D" type="Area2D" parent="." unique_id=596764847]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2114804069]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PortalArea2D" unique_id=2114804069]
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_jr6l0")
 
-[node name="applause" type="AudioStreamPlayer2D" parent="." unique_id=17768764]
-stream = ExtResource("3_jr6l0")
-playback_type = 1
+[connection signal="body_entered" from="PortalArea2D" to="." method="_on_portal_area_2d_body_entered"]

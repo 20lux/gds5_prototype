@@ -10,9 +10,9 @@ func _process(_delta: float) -> void:
 	elif player.direction == -1:
 		sprite.flip_h = false
 	
-	if player.is_on_floor() or player.is_on_ceiling():
+	if player.is_on_floor() or player.velocity.y < 0:
 		animation_player.play("land")
-	elif player.jumpNum > player.jumpLimit:
+	elif player.releaseChute:
 		animation_player.play("falling")
 	else:
 		animation_player.play("jump")

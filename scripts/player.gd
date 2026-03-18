@@ -15,6 +15,8 @@ var falling_grav : Vector2
 var maxVelocity = 600.0
 var minVelocity = -600.0
 
+var releaseChute = false
+
 @onready var jet_particles = $JetParticles
 @onready var wrong_particles = $WrongParticles
 
@@ -43,6 +45,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and !is_on_floor() and jumpNum <= jumpLimit:
 		# only if player is rising
 		if velocity.y < 0 and jumpNum <= jumpLimit:
+			releaseChute = false
 			audio_jump.play()
 			jumpNum += 1
 			velocity.y *= jump_magnitude
@@ -55,12 +58,8 @@ func _physics_process(delta: float) -> void:
 			elif jumpNum == 3:
 				jet_particles.emitting = true
 				jet_particles.color = Color.DIM_GRAY
-	elif Input.is_action_just_pressed("jump") and jumpNum == 4 or velocity.y > 500:
-		audio_wrong.play()
-		velocity.y = lerpf(velocity.y, 0, 1.0)
-		jet_particles.emitting = true
-		wrong_particles.emitting = true
-		jet_particles.color = Color.BLACK
+	elif Input.is_action_just_pressed("jump") and jumpNum == 4:
+		release_chute()
 
 	## Get the input direction and handle the movement/deceleration.
 	direction = Input.get_axis("left", "right")
@@ -70,3 +69,11 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, speed)
 
 	move_and_slide()
+
+func release_chute() -> void:
+	releaseChute = true
+	audio_wrong.play()
+	velocity.y = lerpf(velocity.y, 0, 1.0)
+	jet_particles.emitting = true
+	wrong_particles.emitting = true
+	jet_particles.color = Color.BLACK
